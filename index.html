@@ -13,23 +13,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:#faf8f5;color:#1a1a2e}
 
-/* ── MOSAIC BACKGROUND ── */
-body::before {
-  content:'';
-  position:fixed;
-  inset:0;
-  background-image: url('ee.png');
-  background-repeat: repeat;
-  background-size: 140px 140px;
-  opacity: 0.06;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Push all content above the mosaic */
-#root { position: relative; z-index: 1; }
-
-.grain::after{content:'';position:fixed;inset:0;opacity:0;pointer-events:none;z-index:9999}
+.grain::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");opacity:0.015;pointer-events:none;z-index:9999}
 
 .gc{transition:all .3s ease;border:1px solid rgba(200,30,30,.15)}
 .gc:hover{border-color:rgba(200,30,30,.5);box-shadow:0 0 28px rgba(200,30,30,.12),0 8px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
@@ -324,20 +308,21 @@ function TabHome({ onUpgrade }) {
   return (
     <div style={{ maxWidth:'700px', margin:'0 auto' }}>
 
-      {/* Academy Logo Hero — large centered */}
-      <div className="a1" style={{ textAlign:'center', marginBottom:'28px', padding:'40px 20px 28px', background:'rgba(255,255,255,0.85)', backdropFilter:'blur(12px)', borderRadius:'24px', border:'1px solid rgba(200,30,30,.15)', boxShadow:'0 8px 40px rgba(200,30,30,.08)' }}>
-        <img src="ee.png" alt="Women Impact Academy" style={{ maxWidth:'420px', width:'100%', margin:'0 auto', display:'block', filter:'drop-shadow(0 4px 16px rgba(200,30,30,0.15))' }}/>
-        <div style={{ marginTop:'18px', display:'flex', alignItems:'center', justifyContent:'center', gap:'10px' }}>
-          <div style={{ height:'1px', width:'50px', background:'linear-gradient(90deg,transparent,#c81e1e)' }}/>
-          <p style={{ color:'#c81e1e', fontSize:'13px', letterSpacing:'0.12em', fontWeight:700, textTransform:'uppercase' }}>
-            Empowering Women · Developing Skills · Transforming Futures
-          </p>
-          <div style={{ height:'1px', width:'50px', background:'linear-gradient(90deg,#c81e1e,transparent)' }}/>
-        </div>
+      {/* ee.png — Academy Logo Hero */}
+      <div className="a1" style={{ textAlign:'center', marginBottom:'22px', padding:'28px 20px 20px', background:'#ffffff', borderRadius:'20px', border:'1px solid rgba(200,30,30,.12)', boxShadow:'0 4px 24px rgba(200,30,30,.07)' }}>
+        <img src="ee.png" alt="Women Impact Academy" style={{ maxWidth:'340px', width:'100%', margin:'0 auto', display:'block' }}/>
+        <p style={{ marginTop:'14px', color:'#6b7280', fontSize:'14px', letterSpacing:'0.04em', fontWeight:500 }}>
+          Empowering Women · Developing Skills · Transforming Futures
+        </p>
+      </div>
+
+      {/* Aminata Hero Banner */}
+      <div className="a2" style={{ borderRadius:'16px', overflow:'hidden', marginBottom:'18px', position:'relative' }}>
+        <img src="image.png" alt="Women Impact Academy — Aminata Dramé" style={{ width:'100%', display:'block', borderRadius:'16px', border:'1px solid rgba(200,30,30,.15)', boxShadow:'0 8px 32px rgba(200,30,30,.1)' }}/>
       </div>
 
       {/* Ecosystem Stats Banner */}
-      <div className="a2" style={{ background:'linear-gradient(135deg,#fff5f5,#ffe8e8)', border:'1px solid rgba(200,30,30,.25)', borderRadius:'16px', padding:'20px 24px', marginBottom:'18px', display:'flex', flexWrap:'wrap', gap:'20px', alignItems:'center', justifyContent:'space-between' }}>
+      <div className="a3" style={{ background:'linear-gradient(135deg,#fff5f5,#ffe8e8)', border:'1px solid rgba(200,30,30,.25)', borderRadius:'16px', padding:'20px 24px', marginBottom:'18px', display:'flex', flexWrap:'wrap', gap:'20px', alignItems:'center', justifyContent:'space-between' }}>
         <div>
           <div style={{ fontFamily:"'Playfair Display',serif", fontSize:'20px', color:'#1a1a2e', marginBottom:'4px' }}>Women Impact Ecosystem</div>
           <div style={{ color:'#6b7280', fontSize:'13px' }}>Build Skills. Grow Income. Master Your Life.</div>
